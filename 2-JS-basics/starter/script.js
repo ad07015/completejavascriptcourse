@@ -270,6 +270,7 @@ if (height == '23') {
 * Truthy and Falsy values and equality operators
 */
 
+/*
 var johnAvgScore, markAvgScore, maryAvgScore;
 johnAvgScore = (116 + 95 + 125) / 3;
 markAvgScore = (116 + 95 + 125) / 3;
@@ -300,6 +301,76 @@ switch (true) {
 	default:
 		console.log("There is three-way tie!"); 
 }
+*/
+
+/*****************************
+* Functions
+*/
+
+/*
+function calculateAge(birthYear) {
+	return 2019 - birthYear;
+}
+
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1988);
+var ageJane = calculateAge(1969);
+
+console.log(ageJohn, ageMike, ageJane);
+
+function yearsUntilRetirement(birthYear, firstName) {
+	var retirementAge = 65;
+	var age = calculateAge(birthYear);
+	var retiresAt = retirementAge - age;
+	if (retiresAt > 0) {
+		console.log(firstName + ' has ' + retiresAt + ' years until retirement');
+	} else {
+		console.log(firstName + ' is retired');
+	}
+}
+
+yearsUntilRetirement(1988, 'Andrejs');
+yearsUntilRetirement(1938, 'Percy');
+yearsUntilRetirement(1995, 'Nikita');
+*/
+
+/*****************************
+* Function statements and expressions
+*/
+
+// function declaration
+
+// function whatDoYouDo(job, firstsName) {
+
+// }
+
+// function expression
+var whatDoYouDo = function(job, firstName) {
+	switch (job.toLowerCase()) {
+		case 'teacher':
+			return firstName + ' teaches kids how to draw.';
+		case 'driver':
+			return firstName + ' drives kids around.';
+		case 'designer':
+			return firstName + ' helps kids create beatuiful websites.';
+		default: 
+			return firstName + ' does something else.';
+	}
+}
+
+console.log(whatDoYouDo('Driver', 'John'));
+
+// function statement: does something, does not return anything, does not evaluate to anything
+
+if (true) {
+	console.log(23);
+}
+
+
+
+
+
+
 
 
 
