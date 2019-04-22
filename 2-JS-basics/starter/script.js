@@ -337,7 +337,7 @@ yearsUntilRetirement(1995, 'Nikita');
 /*****************************
 * Function statements and expressions
 */
-
+/*
 // function declaration
 
 // function whatDoYouDo(job, firstsName) {
@@ -365,16 +365,103 @@ console.log(whatDoYouDo('Driver', 'John'));
 if (true) {
 	console.log(23);
 }
+*/
 
+/*****************************
+* Arrays
+*/
+/*
+// Initialize new array
+var names = ['John', 'Mark', 'Jane'];
+var years = new Array(1990, 1969, 1948);
 
+console.log(names[1]);
+console.log(names);
+console.log(names.length);
 
+// Mutate array data
+names[1] = 'Ben';
+console.log(names);
 
+names[5] = 'Mary';
+console.log(names);
 
+names[names.length] = 'Steve';
+console.log(names);
 
+// Different data types in one array
+var john = ['John', 'Smith', 1990, 'Teacher', false];
+console.log(john);
 
+john.push('blue'); // add element to the end of the array
+console.log(john);
 
+john.unshift('Mr.'); // add element to beginning of array
+console.log(john);
 
+john.pop(); // removes element from the end of the array
+console.log(john);
 
+john.shift();
+console.log(john); // removes element from the beginning of the array;
+
+console.log(john.indexOf(1990));
+console.log(john.indexOf('notinthearray')); // indexOf returns -1 if element not in array
+
+var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
+console.log(isDesigner);
+*/
+
+/*****************************
+* Coding challenge 3
+*/
+/*
+var tips = [];
+var totals = [];
+
+function tipCalculator(bill) {
+	var justTheTip;
+	if (bill < 50) {
+		justTheTip = bill * 0.2;
+	} else if (bill < 200) {
+		justTheTip = bill * 0.15;
+	} else {
+		justTheTip = bill * 0.1;
+	}
+	tips.push(justTheTip);
+	totals.push(bill + justTheTip);
+}
+
+var bills = [124, 48, 268];
+
+tipCalculator(bills[0]);
+console.log(tips, totals);
+
+tipCalculator(bills[1]);
+console.log(tips, totals);
+
+tipCalculator(bills[2]);
+console.log(tips, totals);
+*/
+
+function tip(bill) {
+	if (bill > 0 && bill < 50) {
+		return bill * 0.2;
+	} else if (bill >= 50 && bill < 200) {
+		return bill * 0.15;
+	} else {
+		return bill * 0.1;
+	}
+}
+
+var bills = [124, 48, 268];
+var tips  = [tip(bills[0]),
+			 tip(bills[1]),
+			 tip(bills[2])];
+var totals = [bills[0] + tips[0],
+			  bills[1] + tips[1],
+			  bills[2] + tips[2],];			 
+console.log(tips, totals);
 
 
 
