@@ -460,9 +460,8 @@ var tips  = [tip(bills[0]),
 			 tip(bills[2])];
 var totals = [bills[0] + tips[0],
 			  bills[1] + tips[1],
-			  bills[2] + tips[2],];			 
+			  bills[2] + tips[2]]; 
 console.log(tips, totals);
-
 
 
 
