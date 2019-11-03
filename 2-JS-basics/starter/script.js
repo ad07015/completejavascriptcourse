@@ -443,7 +443,7 @@ console.log(tips, totals);
 tipCalculator(bills[2]);
 console.log(tips, totals);
 */
-
+/*
 function tip(bill) {
 	if (bill > 0 && bill < 50) {
 		return bill * 0.2;
@@ -462,8 +462,93 @@ var totals = [bills[0] + tips[0],
 			  bills[1] + tips[1],
 			  bills[2] + tips[2]]; 
 console.log(tips, totals);
+*/
 
+/*****************************
+* Objects and properties
+*/
+/*
+// Object literal
+var john = {
+	firstName: 'John', // firstName is a property of the John object
+	lastName: 'Smith',
+	birthYear: 1990,
+	family: ['Jane', 'Mark', 'Bob', 'Emily'],
+	job: 'teacher',
+	isMarried: false
+};
+console.log(john.firstName);
+console.log(john['lastName']);
+var fieldName = 'birthYear';
+console.log(john[fieldName]);
 
+// mutate the object
+john.job = 'designer';
+john.isMarried = true;
+console.log(john);
+
+// new Object literal
+var jane = new Object();
+jane.name = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] = 'Smith';
+console.log(jane);
+*/
+
+/*****************************
+* Objects and methods
+*/
+/*
+var john = {
+	firstName: 'John', // firstName is a property of the John object
+	lastName: 'Smith',
+	birthYear: 1988,
+	family: ['Jane', 'Mark', 'Bob', 'Emily'],
+	job: 'teacher',
+	isMarried: false,
+	calcAge: function() {
+		this.age = 2019 - this.birthYear; // Current date can be retrieved by calling new Date().getFullYear()
+	}
+};
+
+john.calcAge()
+console.log(john);
+*/
+
+/*****************************
+* Coding challenge 4
+*/
+
+var john = {
+	fullName: 'John Smith',
+	mass: 120,
+	height: 1.89,
+	calcBMI: function() {
+		this.bmi = this.mass / (this.height * this.height);
+		return this.bmi;
+	}
+}
+
+var mark = {
+	fullName: 'Mark Black',
+	mass: 95,
+	height: 1.89,
+	calcBMI: function() {
+		this.bmi = this.mass / (this.height * this.height);
+		return this.bmi;
+	}
+}
+
+john.calcBMI()
+mark.calcBMI()
+
+if (john.bmi > mark.bmi) {
+	console.log(john.fullName + ' has higher BMI than ' + mark.fullName + '. John\'s BMI is ' + john.bmi);
+} else if (mark.bmi > john.bmi) {
+	console.log(mark.fullName + ' has higher BMI than ' + john.fullName + '. Mark\'s BMI is ' + mark.bmi);
+} else {
+	console.log(mark.fullName + ' and ' + john.fullName + ' have the same BMI of ' + john.bmi);
+}
 
 
 
