@@ -428,7 +428,7 @@ function tipCalculator(bill) {
 	} else {
 		justTheTip = bill * 0.1;
 	}
-	tips.push(justTheTip);
+	tips.push(justTheTip); // push adds an element to the end of the array
 	totals.push(bill + justTheTip);
 }
 
@@ -518,7 +518,7 @@ console.log(john);
 /*****************************
 * Coding challenge 4
 */
-
+/*
 var john = {
 	fullName: 'John Smith',
 	mass: 120,
@@ -549,28 +549,125 @@ if (john.bmi > mark.bmi) {
 } else {
 	console.log(mark.fullName + ' and ' + john.fullName + ' have the same BMI of ' + john.bmi);
 }
+*/
+ 
+/*****************************
+* Loops and iteration
+*/
+/*
+console.log("------------------------");
+for (var i = 0; i < 10; i++) {
+	console.log(i);
+}
 
+console.log("------------------------");
+var john = ['John', 'Smith', 1990, 'Teacher', false];
+for (var i = 0; i < john.length; i++) {
+	console.log(john[i]);
+}
 
+console.log("------------------------");
+var i = 1;
+while (i < john.length) {
+	console.log(john[i]);
+	i++;
+}
 
+// continue and break statements
 
+// skip non-string array elements
+console.log("------------------------");
+var john = ['John', 'Smith', 1990, 'Teacher', false];
+for (var i = 0; i < john.length; i++) {
+	if (typeof john[i] !== 'string') continue;
+	console.log(john[i]);
+}
 
+// exit the foor loop when a non-string array element is encountered
+console.log("------------------------");
+for (var i = 0; i < john.length; i++) {
+	if (typeof john[i] !== 'string') break;
+	console.log(john[i]);
+}
 
+// Looping backwards
+console.log("------------------------");
+for (var i = john.length - 1; i >= 0; i--) {
+	console.log(john[i]);
+}
+*/
 
+/*****************************
+* Coding challenge 5
+*/
 
+var johnTipCalculator = {
+	bills: [124, 48, 268, 180, 42],
+	tips: [],
+	paidAmounts: [],
 
+	calcTip: function() {
+		for (i = 0; i < this.bills.length; i++) {
+			if (this.bills[i] < 50) {
+				this.tips.push(this.bills[i] * 0.2);
+				this.paidAmounts.push(this.bills[i] + this.tips[i]);
+			} else if (this.bills[i] < 200) {
+				this.tips.push(this.bills[i] * 0.15);
+				this.paidAmounts.push(this.bills[i] + this.tips[i]);
+			} else {
+				this.tips.push(this.bills[i] * 0.1);
+				this.paidAmounts.push(this.bills[i] + this.tips[i]);
+			}
+		}
+	}
+}
 
+johnTipCalculator.calcTip();
+console.log(johnTipCalculator.bills);
+console.log(johnTipCalculator.tips);
+console.log(johnTipCalculator.paidAmounts);
 
+var markTipCalculator = {
+	bills: [77, 375, 110, 45],
+	tips: [],
+	paidAmounts: [],
 
+	calcTip: function() {
+		for (i = 0; i < this.bills.length; i++) {
+			if (this.bills[i] < 100) {
+				this.tips.push(this.bills[i] * 0.2);
+				this.paidAmounts.push(this.bills[i] + this.tips[i]);
+			} else if (this.bills[i] < 300) {
+				this.tips.push(this.bills[i] * 0.1);
+				this.paidAmounts.push(this.bills[i] + this.tips[i]);
+			} else {
+				this.tips.push(this.bills[i] * 0.25);
+				this.paidAmounts.push(this.bills[i] + this.tips[i]);
+			}
+		}
+	}
+}
 
+markTipCalculator.calcTip();
+console.log(markTipCalculator.bills);
+console.log(markTipCalculator.tips);
+console.log(markTipCalculator.paidAmounts);
 
+function average(array) {
+	var sum = 0;
+	for (i = 0; i < array.length; i++) {
+		sum += array[i];
+	}
+	return sum / array.length;
+}
 
+var johnAverageTip = average(johnTipCalculator.tips);
+var markAverageTip = average(markTipCalculator.tips);
 
-
-
-
-
-
-
-
-
-
+if (johnAverageTip > markAverageTip) {
+	console.log("John's family tips more on average ($" + johnAverageTip + ") than Mark's family ($" + markAverageTip + ")");
+} else if (markAverageTip > johnAverageTip) {
+	console.log("Mark's family tips more on average ($" + markAverageTip + ") than John's family ($" + johnAverageTip + ")");
+} else {
+	console.log("Mark's and John's families tip the same on average ($" + johnAverageTip + ")");
+}
